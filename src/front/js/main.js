@@ -1,4 +1,4 @@
-function confirm() {
+function horse_confirm() {
   var search = document.horsename.horse.value;
   search = (search == null) ? "" : search;
   if (search == "") {
@@ -17,4 +17,19 @@ function confirm() {
     return;
   }
   document.horsename.submit();
+}
+
+function mail_confirm() {
+  var send = document.mailform.mail.value;
+  var regexp = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
+  if (send == "") {
+    alert('メールアドレスを入力してください。');
+    document.mailform.mail.focus();
+    return;
+  } else if (!regexp.test(send)) {
+    alert('メールアドレスを正しく入力してください。');
+    document.mailform.mail.focus();
+    return;
+  } 
+  document.mailform.submit();
 }

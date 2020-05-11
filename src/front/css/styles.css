@@ -1,4 +1,9 @@
 .main_form {
   top: 500px;
+  font-family: Century;
   text-align:center;
+}
+
+p {
+  font-size: 4;
 }

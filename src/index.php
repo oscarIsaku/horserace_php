@@ -9,21 +9,22 @@
   <script src="front/js/main.js"></script>
 </head>
 <body>
-<div><a href="signin/input.php">新規登録</a></div>
+<div><a href="signin/mailto.php">新規登録</a></div>
 <div><a href="login.php">ログイン</a></div>
 <div><a href="logout.php">ログアウト</a></div>
 <form  class="main_form" method="post" action="" name="horsename">
 <?php
-if (!isset($_POST['horse'])) {
+if (isset($_POST['horse'])) {
   $horse = $_POST['horse'];
-  if (preg_match("/^[ァ-ヶー]+$/u", $horse)) {
+  if (!preg_match("/^[ァ-ヶー]+$/u", $horse)) {
   ?>
     <font size="4" color="red">馬名は全角カタカナ9文字以内で入力してください。</font><br>
  <?php  }
 }
+
 ?>
-  <label for="horsename">調べたい馬は？</label><br>
-  <input type="text" size="40" name="horse"><input type="button" value="検索"  onClick="confirm();">
+  <label for="horse">調べたい馬は？</label><br>
+  <input type="text" size="40" name="horse"><input type="button" name="horse_button" value="検索"  onClick="horse_confirm();">
 </form>
 </body>
 </html>
